@@ -1,0 +1,1 @@
+/* webRoot/Script/edition2.0/article/common.js */

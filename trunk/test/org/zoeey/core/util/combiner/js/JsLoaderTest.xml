@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : JsLoaderTest.xml
+    Created on : 2009年3月25日, 下午7:21
+    Author     : MoXie
+    Description:
+        Purpose of the document follows.
+-->
+<zo:root  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:zo='http://xml.zoeey.org/schema/JsContainer'
+   xsi:schemaLocation='http://xml.zoeey.org/schema/JsContainer  ../../../../../../../src/org/zoeey/core/util/combiner/js/JsContainer.xsd'>
+    <zo:base>
+         <!-- 文件根目录，作用于无fileRoot配置且无绝对路径标识（@）的文件 -->
+        <zo:fileRoot>{$classesDir}</zo:fileRoot>
+        <!--
+            用于扫描 填写路径的文件
+        -->
+        <zo:safeRoot>
+            <zo:file>/content/</zo:file>
+        </zo:safeRoot>
+        <zo:safeRoot fileRoot="e:/staticRoot/">
+            <!-- file可为目录 -->
+            <zo:file>/content/</zo:file>
+        </zo:safeRoot>
+        <!--  强制加载文件 -->
+        <zo:forceFile>
+            <zo:file fileRoot="D:/Project/Netbeans/XUL/CloseTopic/src/content/">JsLoaderTester.js</zo:file>
+            <zo:file>/content/JsLoaderTester.js</zo:file>
+            <zo:file>@D:/Project/Netbeans/XUL/CloseTopic/src/content/JsLoaderTester.js</zo:file>
+        </zo:forceFile>
+        <zo:forceFile fileRoot="D:/Project/Netbeans/XUL/CloseTopic/src/content/">
+            <zo:file name="JsLoaderTester_1">JsLoaderTester.js</zo:file>
+            <zo:file>JsLoaderTester.js</zo:file>
+        </zo:forceFile>
+    </zo:base>
+
+    <!-- 
+    Version 1.0 前暂废除
+    isStatic 在这里可以关闭
+    <zo:redirect>
+           http 等前注意加@
+        <zo:file name="cross_yh_weather" isStatic="false">@http://someapi.com/weather.jsp</zo:file>
+        <zo:file name="my_weather" >/weather.jsp</zo:file>
+    </zo:redirect>
+    -->
+    <zo:single>
+        <zo:file name="articleCom">article/common.js</zo:file>
+        <zo:file name="articleEdit" fileRoot="/webRoot/js/">article/edit.js</zo:file>
+        <zo:file name="specialPage_nationalDay">@/webRoot/special/script/edit.js</zo:file>
+    </zo:single>
+
+    <zo:single fileRoot="D:/Project/Netbeans/XUL/CloseTopic/src/content/">
+        <zo:file name="articleCom_2_0">JsLoaderTester.js</zo:file>
+        <zo:file name="articleEdit_2_0">article/edit.js</zo:file>
+    </zo:single>
+
+    <zo:groups>
+        <zo:group name="article.edit" fileRoot="D:/Project/Netbeans/XUL/CloseTopic/src/content/">
+            <zo:file name="JsLoaderTester_1">JsLoaderTester.js</zo:file>
+            <zo:file>JsLoaderTester.js</zo:file>
+        </zo:group>
+    </zo:groups>
+</zo:root>
